@@ -1,0 +1,197 @@
+.img-custom {
+    width: 100%;
+    height: auto;
+}
+
+.img-custom-feedback {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.title-nav {
+    font-size: 2rem;
+    color: #9d9d9d;
+}
+
+.title-nav:hover {
+    text-decoration: none;
+    color:#fff;
+    background-color:transparent;
+}
+
+input {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+ul li a, .navbar-brand {
+    font-family: 'Oswald', sans-serif;
+}
+
+.thumbnail {
+    border-radius: 0;
+    padding: 0;
+}
+
+.ul-theme {
+    list-style: none;
+}
+
+.ul-theme li {
+    margin-left: 2rem;
+    margin-bottom: 2rem
+;
+}
+
+.img-theme {
+    border-radius: 50%;
+    max-width: 100%;
+    height: auto;
+    border: 5px solid #d1d3d5;
+    margin-top: 4rem;
+    margin-bottom: 10rem;
+}
+
+.img-theme:hover {
+    border: 5px solid #d52d34;
+}
+
+.img-list {
+    max-width: 100%;
+    height: auto;
+}
+
+.content-product {
+    margin-bottom: 5rem;
+}
+
+.content-product h3 {
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.content-product h4 {
+    color: #d52d34;
+    font-weight: bold;
+}
+
+.img-pro {
+    max-width: 100%;
+    height: auto;
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+}
+
+.pull-right h4 {
+    margin-left: 6rem;
+}
+
+.footer-music {
+    background: #101010;
+    color: white;
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.my-p {
+    margin-top: 3rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.user-panel {
+    display: inline-block;
+    color: white;
+    padding-bottom: 2rem;
+}
+
+.image img {
+    width: 100%;
+    max-width: 45px;
+    height: auto;
+}
+
+.main-sidebar {
+    background-color: #222d32;
+    padding: 1rem;
+    margin-top: -2rem;
+}
+
+.slibar-form {
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.info {
+    padding-left: 1rem;
+}
+
+.user-panel>.info>p {
+    font-weight: 600;
+    margin-bottom: 9px;
+}
+
+.info a {
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+.slibar-menu {
+    color: white;
+    list-style: none;
+    margin-left: -4rem;
+}
+
+.slibar-menu .header {
+    color: #4b646f;
+    background: #1a2226;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.slibar-item {
+    padding-top: 1rem;
+}
+
+.slibar-item a {
+    padding-left: 1rem;
+    text-decoration: none;
+    color: white;
+}
+
+.list-custom {
+    margin-top: 5rem;
+}
+
+.list-custom .list-group-item {
+    font-weight: bold;
+}
+
+.width-label {
+    width: 100px;
+}
+
+.center {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+}
+
+.btn-custom {
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.text-center figure figcaption h3{
+    font-size: 50px;
+    margin-bottom: 3rem;
+}
+
+.form-custom {
+    margin-bottom: 2rem;
+}

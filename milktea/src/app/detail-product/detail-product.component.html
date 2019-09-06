@@ -1,0 +1,95 @@
+<app-header></app-header>
+<app-slider></app-slider>
+<h1 *ngIf="!product._id" class="title">Không tìm thấy sản phẩm!</h1>
+<div class="row" *ngIf="product._id">
+  <h1 class="title">Detail Product</h1>
+</div>
+<br>
+<div class="row" *ngIf="product._id">
+  <div class="col-md-6 col-xs-12 col-sm-6">
+    <div class="thumbnail">
+
+      <img [src]="product.images" style="width: 100%;">
+
+    </div>
+  </div>
+  <div class="col-md-6 col-xs-12 col-sm-6">
+    <div class="content-product">
+      <h3 class="text-center">{{product.name}}</h3>
+      <p class="mota">{{product.mota}}</p>
+      <h4 *ngIf="so>=0" class="cachtrai"> {{product.gia*so + ' đ'}}</h4>
+      <h4 *ngIf="so<0" class="cachtrai">0 đ</h4>
+      <div class="center-block">
+        <span style="font-weight: bold" class="cachtrai">Số lượng:</span>
+        <input style="width: 20%" class="input-sm cachtrai" type="number" [(ngModel)]="so" min="1" max="10">
+      </div>
+      <br>
+      <button [class]="so < 1 ? 'btn btn-danger disabled cachtrai' : 'btn btn-danger cachtrai'"
+        (click)="addCart(product.gia*so);">
+        <b>ADD TO CART</b>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- BINH LUAN -->
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-info">
+      <div class="panel-body">
+        <textarea placeholder="Viết bình luận ở đây!" class="pb-cmnt-textarea" #binhluan></textarea>
+        <form class="form-inline">
+          <!-- <div class="btn-group">
+                          <button class="btn" type="button"><span class="fa fa-picture-o fa-lg"></span></button>
+                          <button class="btn" type="button"><span class="fa fa-video-camera fa-lg"></span></button>
+                          <button class="btn" type="button"><span class="fa fa-microphone fa-lg"></span></button>
+                          <button class="btn" type="button"><span class="fa fa-music fa-lg"></span></button>
+                      </div> -->
+          <button class="btn btn-primary pull-right" type="button" (click)="sendComment(binhluan.value)">Gửi bình luận</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->
+<!-- LIST BINH LUAN -->
+
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="page-header">Comments</h2>
+      <section class="comment-list">
+
+        <!-- BAT DAU -->
+        <article class="row" *ngFor="let comment of comments">
+          <div class="col-md-2 col-sm-2 hidden-xs">
+            <figure class="thumbnail">
+              <img class="img-responsive"
+                src="/assets/images/user-avatar-placeholder.png" />
+              <figcaption class="text-center"></figcaption>
+            </figure>
+          </div>
+          <div class="col-md-10 col-sm-10">
+            <div class="panel panel-default arrow left">
+              <div class="panel-body">
+                <header class="text-left">
+                  <div class="comment-user"><i class="fa fa-user"></i> {{comment.email}}</div>
+                  <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> {{comment.time}}</time>
+                </header>
+                <div class="comment-post">
+                  <p>
+                    {{comment.noidung}}
+                  </p>
+                </div>
+                <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- KET THUC -->
+      </section>
+    </div>
+  </div>

@@ -1,0 +1,52 @@
+<div class="row">
+  <h1 class="title">Quản Lý Đơn Hàng</h1>
+</div>
+<br>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <tr class="bg-success">
+          <th>Email</th>
+          <th>Sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Tổng tiền</th>
+          <th>Thời gian đặt</th>
+          <th>Trạng thái</th>
+          <th>Thao tác</th>
+        </tr>
+        <tr *ngFor="let cart of carts">
+          <td>{{cart.email}}</td>
+          <td>{{cart.ten_hang}}</td>
+          <td>{{cart.gia}}</td>
+          <td>
+            <input type="number" min="1" max="10" #soluong value="{{cart.soluong}}">
+          </td>
+          <td>{{cart.gia*soluong.value}}</td>
+          <td>{{cart.thoigiandathang}}</td>
+          <td>
+            <select #trangthai class="form-control">
+              <option *ngIf="cart.trangthai=='Đang chuyển hàng'" value="Đang chuyển hàng" selected="selected">Đang
+                chuyển hàng</option>
+              <option *ngIf="cart.trangthai!=='Đã nhận'" value="Đã nhận">Đã nhận</option>
+              <option *ngIf="cart.trangthai!=='Chờ xác nhận'" value="Chờ xác nhận">Chờ xác nhận</option>
+
+              <option *ngIf="cart.trangthai=='Đã nhận'" value="Đã nhận" selected="selected">Đã nhận</option>
+              <option *ngIf="cart.trangthai!=='Đang chuyển hàng'" value="Đang chuyển hàng">Đang chuyển hàng</option>
+
+              <option *ngIf="cart.trangthai=='Chờ xác nhận'" value="Chờ xác nhận" selected="selected">Chờ xác nhận
+              </option>
+            </select>
+          </td>
+          <td>
+            <button (click)="update(trangthai.value,cart,soluong.value);" class="btn btn-warning">Sửa</button>
+            &nbsp;
+            <button class="btn btn-danger" (click)="deleteCart(cart._id)">Xóa</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

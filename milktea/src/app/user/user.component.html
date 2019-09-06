@@ -1,0 +1,59 @@
+<div class="row">
+  <h1 class="title">Quản Lý User</h1>
+</div>
+<br>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <tr class="bg-success">
+          <th>Email</th>
+          <th>Password</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Thao tác</th>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>{{user.email}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.address}}</td>
+          <td>{{user.phone}}</td>
+          <td>
+            <button class="btn btn-info" (click)="hien = true;sua(user)">Sửa</button>&nbsp;<button class="btn btn-danger "
+              (click)="deleteUser(user._id);">Xóa</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row" *ngIf="hien">
+    <div>
+      <h2 class="title">Cập nhật thông tin</h2>
+      <div style=" margin-left: 2rem">
+        <form (ngSubmit)="update();" [formGroup]="formUpdate" style="margin-bottom: 2rem;">
+          <div class="form-group">
+            <label>Name:</label>
+            <input type="text" placeholder="Name" name="name" formControlName="name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Address:</label>
+            <input type="text" placeholder="Address" name="address" formControlName="address" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Phone:</label>
+            <input type="text" placeholder="Phone" name="phone" formControlName="phone" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Password:</label>
+            <input type="password" placeholder="Password" name="password" formControlName="password" class="form-control">
+          </div>
+          <button [disabled]="formUpdate.invalid" name="addAccount" class="btn btn-primary">UPDATE</button>
+          <button class="btn btn-success" (click)="hien = false">Hủy</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

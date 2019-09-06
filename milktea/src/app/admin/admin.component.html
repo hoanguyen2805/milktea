@@ -1,0 +1,72 @@
+<div id="wrapper">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="adjust-nav">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="/assets/images/logo.jpg" style="height: 50px"/>
+        </a>
+      </div>
+
+      <span class="logout-spn">
+        <a href="#" style="color:#fff;">Admin DashBoard</a>
+
+      </span>
+    </div>
+  </div>
+  <!-- /. NAV TOP  -->
+  <nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+      <ul class="nav" id="main-menu">
+
+
+        <li>
+          <a routerLink="/admin/user" routerLinkActive="active"><i class="fa fa-desktop "></i>Dashboard User</a>
+        </li>
+
+
+        <li>
+          <a routerLink="/admin/product" routerLinkActive="active"><i class="fa fa-table "></i>Dashboard product</a>
+        </li>
+        <li>
+          <a routerLink="/admin/cart"><i class="fa fa-qrcode "></i>DashBoard Cart</a>
+        </li>
+        <li (click)="logOut();">
+          <a href="#"><i class="glyphicon glyphicon-log-out"></i>Log Out</a>
+        </li>
+        <li>
+          <a routerLink="/"><i class="glyphicon glyphicon-home"></i>Home</a>
+        </li>
+        <!-- <li>
+          <a href="#"><i class="fa fa-edit "></i>My Link Three </a>
+        </li>
+        
+        <li>
+          <a href="#"><i class="fa fa-edit "></i>My Link Five </a>
+        </li> -->
+      </ul>
+    </div>
+
+  </nav>
+  <!-- /. NAV SIDE  -->
+  <div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- <h2>BLANK PAGE </h2> -->
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+      <!-- /. ROW  -->
+      <hr />
+
+      <!-- /. ROW  -->
+    </div>
+    <!-- /. PAGE INNER  -->
+  </div>
+  <!-- /. PAGE WRAPPER  -->
+</div>

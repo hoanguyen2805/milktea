@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="row bo">
+    <div class="col-xs-12">
+        <h1 class="w3ls">Signup Form</h1>
+        <div class="content-w3ls">
+            <div class="content-agile1">
+                <h2 class="agileits1">Official</h2>
+                <p class="agileits2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="content-agile2">
+                <form (ngSubmit)="onSubmit();" [formGroup]="formRegister">
+                    <div class="">
+                        <input type="text" id="firstname" placeholder="Your Name" formControlName="name">
+                        <p *ngIf="formRegister.controls.name.errors?.required && formRegister.controls.name.touched"
+                            class="feedback">Name
+                            không được rỗng</p>
+                    </div>
+                    <div class="">
+                        <input type="text" id="address" placeholder="Address" formControlName="address">
+                        <p *ngIf="formRegister.controls.address.errors?.required && formRegister.controls.address.touched"
+                            class="feedback">Address
+                            không được rỗng</p>
+                    </div>
+
+                    <div class="">
+                        <input type="text" id="phone" placeholder="Phone Number" formControlName="phone">
+                        <p *ngIf="formRegister.controls.phone.errors?.required && formRegister.controls.phone.touched"
+                            class="feedback">Phone
+                            không được rỗng</p>
+                    </div>
+
+                    <div class="">
+                        <input type="email" id="email" placeholder="mail@example.com" formControlName="email">
+                        <p *ngIf="(formRegister.controls.email.errors?.required || formRegister.controls.email.errors?.email) && formRegister.controls.email.touched"
+                            class="feedback">Email không được rỗng và phải có dạng mail </p>
+                    </div>
+
+                    <div class="">
+                        <input type="password" class="lock" placeholder="Password" id="password1"
+                            formControlName="password">
+                        <p *ngIf="formRegister.controls.password.errors?.required && formRegister.controls.password.touched"
+                            class="feedback">Password
+                            không được rỗng</p>
+                    </div>
+                    <input type="submit" [disabled]="formRegister.invalid" class="register btn" value="Register">
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<app-header></app-header>
+<app-slider></app-slider>
+<div class="row">
+  <h1 class="title">Your Cart</h1>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12">
+  <table class="table table-striped">
+    <tr class="success">
+      <th>Sản phẩm</th>
+      <th>Giá</th>
+      <th>Số lượng</th>
+      <th>Tổng tiền</th>
+      <th>Thời gian đặt hàng</th>
+      <th>Trạng thái</th>
+      <th>Hủy đơn hàng</th>
+      <th>Cập nhật số lượng</th>
+    </tr>
+    <tr *ngFor="let cart of carts">
+      <td>{{cart.ten_hang}}</td>
+      <td>{{cart.gia}}</td>
+      <td>
+        <input type="number" min="1" max="10" #soluong value="{{cart.soluong}}">
+      </td>
+      <td>{{cart.tongtien}}</td>
+      <td>{{cart.thoigiandathang}}</td>
+      <td>{{cart.trangthai}}</td>
+      <td><button [class]="cart.trangthai == 'Chờ xác nhận'? 'btn btn-danger' : 'btn disabled'" (click)="deleteCart(cart._id, cart.trangthai);">Hủy</button></td>
+      <td><button [class]="cart.trangthai == 'Chờ xác nhận'? 'btn btn-primary' : 'btn disabled'" (click)="updateCart(cart, soluong.value);">Lưu</button></td>
+    </tr>
+  </table>
+  </div>
+</div>

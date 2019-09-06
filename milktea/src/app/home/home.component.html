@@ -1,0 +1,44 @@
+
+<app-header></app-header>
+<app-slider></app-slider>
+
+<!--Introduce-->
+<div class="row">
+<div class="col-sm-12">
+  <h2 class="title">Introduce</h2>
+  <h4 class="my-p">RoyalTea, từ khi ra đời cho đến nay, luôn theo đuổi việc tạo ra các loại trà tốt nhất cho các
+    thực khách như tên gọi của chính thương hiệu.Royal Tea hướng đến phương châm phục vụ khách hàng: Nhanh chóng,
+    nhiệt tình và an toàn. Royal Tea cam kết sẽ đem đến cho quý khách hàng những sản phẩm trà tinh khiết nhất, vượt
+    trội nhất và thơm ngon nhất.</h4>
+</div>
+</div>
+
+<!--Hot Theme-->
+<app-hot-theme></app-hot-theme>
+<!--End Hot Theme-->
+
+<!-- LIST product   -->
+
+<h2 class="title">LIST PRODUCTS</h2>
+<div class="row">
+  <div class="col-md-6 col-xs-12 col-sm-6" *ngFor="let product of listProducts">
+    <div class="thumbnail">
+      <a routerLink="/detail-product/{{product._id}}" class="khonggach">
+        <img src="{{product.images}}" style="width:100%; height:470px" class="img-rounded">
+        <div class="caption">
+          <h6 class="tieude">{{product.name}}</h6>
+          <button class="btn btn-danger center-block"><span class="glyphicon glyphicon-menu-right"></span> Xem chi
+            tiết</button>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="text-center">
+    <div class="col-xs-12 col-md-12 col-sm-12">
+      <pagination [totalItems]="40" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination>
+    </div>
+  </div>
+</div>

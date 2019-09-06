@@ -1,0 +1,122 @@
+<div class="row">
+  <h1 class="title">Quản Lý Sản Phẩm</h1>
+</div>
+<br>
+<br>
+<tabset [justified]="true">
+  <tab heading="Chỉnh sửa">
+    <!--  -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <tr class="bg-success">
+              <th>Name</th>
+              <th>Images</th>
+              <th>Lượt Xem</th>
+              <th>Giá</th>
+              <th>Loại</th>
+              <th>Thao tác</th>
+            </tr>
+            <tr *ngFor="let product of products">
+              <td>{{product.name}}</td>
+              <td>
+                <img src="{{product.images}}" width="150px">
+              </td>
+              <td>{{product.luotxem}}</td>
+              <td>{{product.gia}}</td>
+              <td>{{product.loai}}</td>
+              <td>
+                <button class="btn btn-info" (click)="openModal(template); truyendulieu(product)">Chỉnh sửa</button>
+                &nbsp;
+                <button class="btn btn-danger" (click)="xoa(product._id);">Xóa</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+    <!--  -->
+  </tab>
+  <tab heading="Thêm sản phẩm">
+    <!--  -->
+    <br>
+    <br>
+    <h2 class="title">Insert Product</h2>
+    <form (ngSubmit)="insert();" [formGroup]="formInsert" style="margin-bottom: 2rem;">
+      <div class="form-group">
+        <label>Tên sản phẩm:</label>
+        <input type="text" placeholder="Tên" formControlName="name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Mô tả::</label>
+        <textarea placeholder="Mô tả" rows="4" formControlName="mota" class="form-control">
+        </textarea>
+      </div>
+      <div class="form-group">
+        <label>Giá:</label>
+        <input type="number" placeholder="Giá" formControlName="gia" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Loại:</label>
+        <select name="" class="form-control" formControlName="loai">
+          <option value="freshfruittea">Fresh Fruit Tea</option>
+          <option value="milktea">Milk Tea</option>
+          <option value="topping">Topping</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Chọn hình:</label>
+        <input type="file" class="form-control" formControlName="image">
+      </div>
+      <button [disabled]="formInsert.invalid" class="btn btn-primary btn-lg pull-right">Insert</button>
+    </form>
+
+    <!--  -->
+  </tab>
+</tabset>
+<!-- BAT DAU -->
+<ng-template #template>
+  <div class="modal-header">
+    <h2 class="modal-title pull-left">Cập nhật sản phẩm</h2>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="update();" [formGroup]="formUpdate" style="margin-bottom: 2rem;">
+      <div class="form-group">
+        <label>Tên sản phẩm:</label>
+        <input type="text" placeholder="Tên" formControlName="nameUpdate" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Mô tả::</label>
+        <textarea placeholder="Mô tả" rows="4" formControlName="motaUpdate" class="form-control">
+            </textarea>
+      </div>
+      <div class="form-group">
+        <label>Giá:</label>
+        <input type="number" placeholder="Giá" formControlName="giaUpdate" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Loại:</label>
+        <select name="" class="form-control" formControlName="loaiUpdate">
+          <option value="freshfruittea">Fresh Fruit Tea</option>
+          <option value="milktea">Milk Tea</option>
+          <option value="topping">Topping</option>
+        </select>
+      </div>
+      <!-- <div class="form-group">
+        <label>Chọn hình:</label>
+        <input type="file" class="form-control" formControlName="imageUpdate">
+      </div> -->
+      <div class="form-group">
+          <button class="btn btn-primary center-block">Insert</button>
+      </div>
+      
+    </form>
+  </div>
+</ng-template>
+<!-- KET THUC -->

@@ -1,0 +1,30 @@
+<app-header></app-header>
+<app-slider></app-slider>
+<div class="row" *ngIf="!categorie.name">
+    <h1 class="title">Không tìm thấy</h1>
+    <br> <br>
+</div>
+<div class="row" *ngIf="categorie.name">
+    <div class="col-md-6 col-xs-12 col-sm-6">
+        <div class="thumbnail">
+            
+                <img [src]="categorie.images" style="width: 100%;">
+        
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6">
+        <div class="content-product">
+            <h1 class="text-center title">{{categorie.name}}</h1>
+            <p>{{categorie.mota}}</p>
+            
+            <div class="center-block">
+                <ul>
+                    <li *ngFor="let product of products">
+                        <b><a routerLink="/detail-product/{{product._id}}">{{product.name}}</a></b>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>

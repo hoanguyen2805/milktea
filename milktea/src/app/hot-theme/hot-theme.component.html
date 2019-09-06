@@ -1,0 +1,15 @@
+<div class="row">
+<div class="col-sm-12">
+  <h2 class="title">HOT PRODUCTS</h2>
+
+  <div class="col-sm-12">
+      <div class="col-sm-3" *ngFor="let hotProduct of hotProducts">
+          <div class="img-mother">
+              <a routerLink="/detail-product/{{hotProduct._id}}">
+                  <img class="img-theme" src="{{hotProduct.images}}" alt="music-love">
+              </a>
+          </div>
+      </div>  
+  </div>
+</div>
+</div>
